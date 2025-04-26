@@ -1,0 +1,22 @@
+in app.js
+<BrowserRouter basename="/onlinestores">
+
+   
+    </BrowserRouter>
+
+
+ "homepage": "https://Thalari-Yeshwanth.github.io/onlinestores",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  
+  npm install gh-pages --save-dev
+  npm install react-router-dom
+  npm run build
+  npm run deploy
+  
