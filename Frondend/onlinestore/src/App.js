@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import MainContent from './MainContent';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -19,11 +20,15 @@ function App() {
   };
 
   return (
+    <BrowserRouter basename="/onlinestores">
+
     <div >
             <Header cartCount={cart.length} /> {/* Pass cart count to Header */}
       <MainContent handleAddToCart={handleAddToCart} /> {/* Pass handleAddToCart to MainContent */}
 
     </div>
+    </BrowserRouter>
+
   );
 }
 
