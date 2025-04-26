@@ -1,0 +1,95 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f1f3f6;
+    color: #2c2e2e;
+    padding: 20px 50px;
+    font-family: 'Segoe UI', sans-serif;
+    height: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 1px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+.header-icons {
+    display: flex;
+    gap: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.header-icons span {
+    font-size: 1rem;
+    color: #171717;
+    padding: 20px 5px;
+}
+
+.header-icons .icon:hover {
+    color: #ffc107; /* Hover color */
+}
+
+.cart-text {
+    color: #0b0b0b;
+}
+
+.cart {
+    position: relative;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+}

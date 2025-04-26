@@ -1,0 +1,184 @@
+.main-content {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Top row containing title and see all button */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* Container for all book cards */
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+  padding: 0 40px;
+}
+
+/* Individual book card */
+.book-card {
+  padding: 12px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: transform 0.3s;
+  border: 1px solid #ccc;
+}
+
+/* On hover zoom effect */
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+/* Book image styles */
+.book-image {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Wishlist icon */
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ff4081;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* Rating (star icons) */
+.rating {
+  margin: 8px 0;
+  color: #f5b50a;
+}
+
+/* Title, author, price text */
+.book-title,
+.book-author,
+.book-price {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Action buttons container */
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+/* Add to Cart Button */
+.card-buttons button:first-child {
+  background-color: #ffb300dd;
+  color: #2e2c2ccf;
+}
+
+/* Buy Now Button */
+.card-buttons button:last-child {
+  background-color: #fb661bce;
+  color: #2e2c2ccf;
+}
+
+/* Button common styles */
+.card-buttons button {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-buttons button:hover {
+  transform: scale(1.05);
+}
+
+/* See All button styles */
+.see-all-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.see-all-button:hover {
+  background-color: #0056b3;
+}
+
+/* Blink animation for fun */
+.blink {
+  font-size: 2rem;
+  color: #333;
+  animation: slideIn 3s ease-in-out infinite;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive layout */
+@media (max-width: 992px) {
+  .books-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .books-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .see-all-button {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .books-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .book-card {
+    padding: 12px;
+  }
+
+  .book-title,
+  .book-author,
+  .book-price {
+    font-size: 0.9rem;
+  }
+
+  .card-buttons button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
