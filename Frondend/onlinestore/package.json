@@ -1,6 +1,6 @@
 {
   "name": "onlinestore",
-  "homepage": "/",
+  "homepage": "https://Thalari-Yeshwanth.github.io/onlinestores",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,10 +14,13 @@
     "axios": "^1.9.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.5.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "set PORT=5001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,5 +44,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://online-store-production-28ae.up.railway.app"
+  "proxy": "https://online-store-production-28ae.up.railway.app",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
 }

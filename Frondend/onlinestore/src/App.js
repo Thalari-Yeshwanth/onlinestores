@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import MainContent from './MainContent';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -21,6 +22,8 @@ function App() {
   };
 
   return (
+    <BrowserRouter basename="/onlinestores">
+
     <div >
             <Header setSearchText={setSearchText}
         triggerSearch={() => setSearchTrigger(prev => prev + 1)} /> {/* Pass cart count to Header */}
@@ -28,6 +31,8 @@ function App() {
         searchTrigger={searchTrigger} /> {/* Pass handleAddToCart to MainContent */}
 
     </div>
+    </BrowserRouter>
+
   );
 }
 
