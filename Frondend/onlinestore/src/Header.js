@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import LoginModal from './components/Login/LoginModal.jsx'
+import clickSound from './assets/sounds/mixkit-long-pop-2358.wav'; // Adjust the path according to your project
 
-const Header = () => {
+
+const Header = ({ cartCount }) => {
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const playSound = () => {
+    const audio = new Audio(clickSound);
+    audio.play();
+  };
+
+
+  console.log('showLoginModal', {showLoginModal}); 
+  const handleLoginClick = () => {
+    console.log('Login button clicked'); 
+    playSound();          // 👈 Call playSound here
+    setShowLoginModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowLoginModal(false);
+  };
+
+
+
   return (
     <header className="header">
       <div className="logo">Online Store</div>
@@ -19,11 +44,19 @@ const Header = () => {
         <div className="icon-container">
           <FontAwesomeIcon icon={faShoppingCart} className="icon" />
           <span className="cart-text">Cart</span>
+          {/* Display the cart count dynamically */}
+          <div className="cart-count">{cartCount > 0 ? cartCount : 0}</div>
         </div>
         <div className="icon-container">
           <FontAwesomeIcon icon={faUser} className="icon" />
-          <span className="cart-text">Login</span>
+          <button className="cart-text" onClick={handleLoginClick}>
+            Login
+          </button>
+
+          {/* Show login modal when showLoginModal state is true */}
+          {showLoginModal && <LoginModal onClose={handleCloseModal}/>}
         </div>
+
       </div>
     </header>
   );
