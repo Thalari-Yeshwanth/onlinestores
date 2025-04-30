@@ -4,6 +4,8 @@ import MainContent from './MainContent';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [searchTrigger, setSearchTrigger] = useState(0);
+  const [searchText, setSearchText] = useState('');
 
   if (window.__REACT_DEVTOOLS_GLOBAL_HOOK__) {
     for (let key in window.__REACT_DEVTOOLS_GLOBAL_HOOK__) {
@@ -20,8 +22,10 @@ function App() {
 
   return (
     <div >
-            <Header cartCount={cart.length} /> {/* Pass cart count to Header */}
-      <MainContent handleAddToCart={handleAddToCart} /> {/* Pass handleAddToCart to MainContent */}
+            <Header setSearchText={setSearchText}
+        triggerSearch={() => setSearchTrigger(prev => prev + 1)} /> {/* Pass cart count to Header */}
+      <MainContent handleAddToCart={handleAddToCart} searchText={searchText}
+        searchTrigger={searchTrigger} /> {/* Pass handleAddToCart to MainContent */}
 
     </div>
   );

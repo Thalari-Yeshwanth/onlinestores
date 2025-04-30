@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => {
+const Header = ({ setSearchText, triggerSearch }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSearchClick = () => {
+    setSearchText(inputValue);      // Pass input to parent
+    triggerSearch();                // Tell MainContent to refetch
+  };
   return (
     <header className="header">
       <div className="logo">Online Store</div>
 
       <div className="search-bar">
-        <input type="text" placeholder="Search for anything..." />
-        <button>
+        <input type="text" placeholder="Search for anything..." 
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleSearchClick(); // Call the search button logic
+          }
+        }}
+      />
+        <button onClick={handleSearchClick}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
