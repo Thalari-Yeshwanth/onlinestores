@@ -66,7 +66,7 @@ const MainContent = ({ handleAddToCart, searchText, searchTrigger }) => {
     <div className="main-content">
       {!showAllBooks && (
         <button className="see-all-button" onClick={handleSeeAllClick}>
-          See all
+          watch all
         </button>
       )}
 
