@@ -5,15 +5,16 @@ import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-ic
 import LoginModal from './components/Login/LoginModal.jsx'
 import clickSound from './assets/sounds/mixkit-long-pop-2358.wav'; // Adjust the path according to your project
 
-
 const Header = ({ cartCount, setSearchText, triggerSearch }) => {
-
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
-  const handleSearchClick = () => {
-    setSearchText(inputValue);      // Pass input to parent
-    triggerSearch();                // Tell MainContent to refetch
+  // Handle search as user types
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);      // Update the input value
+    setSearchText(value);      // Pass input to parent immediately
+    triggerSearch();           // Trigger search logic immediately
   };
 
   const playSound = () => {
@@ -21,8 +22,6 @@ const Header = ({ cartCount, setSearchText, triggerSearch }) => {
     audio.play();
   };
 
-
-  console.log('showLoginModal', { showLoginModal });
   const handleLoginClick = () => {
     console.log('Login button clicked');
     playSound();          // 👈 Call playSound here
@@ -33,23 +32,19 @@ const Header = ({ cartCount, setSearchText, triggerSearch }) => {
     setShowLoginModal(false);
   };
 
-
-
   return (
     <header className="header">
       <div className="logo">Online Store</div>
 
       <div className="search-bar">
-        <input type="text" placeholder="Search for anything..."
+        <input
+          type="text"
+          placeholder="Search for anything..."
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              handleSearchClick(); // Call the search button logic
-            }
-          }}
+          onChange={handleSearchChange} // Trigger search immediately on change
         />
-        <button onClick={handleSearchClick}>
+        {/* The search button is optional now, because the search is happening on input change */}
+        <button>
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
@@ -70,7 +65,6 @@ const Header = ({ cartCount, setSearchText, triggerSearch }) => {
           {/* Show login modal when showLoginModal state is true */}
           {showLoginModal && <LoginModal onClose={handleCloseModal} />}
         </div>
-
       </div>
     </header>
   );

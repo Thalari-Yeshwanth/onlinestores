@@ -82,14 +82,18 @@
 
 .cart-count {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: red;
-    color: white;
+    top: 6px; /* Adjust top position */
+    right: 198px; /* Adjust right position */
+    background-color: rgba(226, 145, 145, 0.413);
+    color: black;
     font-size: 14px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     text-align: center;
     line-height: 20px;
+    z-index: 100; /* Ensure the cart count appears above the cart icon */
 }
+
+
+
