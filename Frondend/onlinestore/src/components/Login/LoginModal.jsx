@@ -3,6 +3,8 @@ import { Login} from './Login.js';  // Import login function from login.js
 import './LoginModal.css';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom'; // Add this at the top
+import HomePage from '../HomePage/HomePage.js';
 
 const LoginModal = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,7 +12,7 @@ const LoginModal = ({ onClose }) => {
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
+  const navigate = useNavigate();
   const validateUsername = (value) => {
     const usernameRegex = /^[^\s]{3,8}$/;
     if (!usernameRegex.test(value)) {
@@ -69,6 +71,7 @@ const LoginModal = ({ onClose }) => {
 setTimeout(() => {
   setSuccessMessage('');
   onClose(); // Close modal after 3 seconds
+  navigate('/home');
 }, 3000);
     } catch (err) {
       console.error('Error during login:', err);
