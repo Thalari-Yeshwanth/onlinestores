@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BookCard from './BookCard';
 import './MainContent.css';
 import axios from 'axios';
-import logo from './logo.svg'; // Make sure this path is correct
+import logo from './logos.jpg'; // Make sure this path is correct
 
 const MainContent = ({ handleAddToCart, searchText, searchTrigger }) => {
   const [books, setBooks] = useState([]);
@@ -26,7 +26,7 @@ const MainContent = ({ handleAddToCart, searchText, searchTrigger }) => {
         }
 
         const response = await axios.post(
-          'https://online-store-production-28ae.up.railway.app/onlinestores/book/findAll',
+          'https://online-storeservice-production.up.railway.app/onlinestores/book/findAll',
           requestBody
         );
 
