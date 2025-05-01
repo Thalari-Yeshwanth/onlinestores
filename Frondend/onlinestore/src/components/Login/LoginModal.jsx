@@ -21,13 +21,13 @@ const LoginModal = ({ onClose }) => {
   };
 
   const validatePassword = (value) => {
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
     if (!passwordRegex.test(value)) {
-      setPasswordError('Min 6 chars, must include letters and numbers');
+      setPasswordError('Password must be at least 6 characters long and include uppercase, lowercase, number, and special character.');
     } else {
       setPasswordError('');
     }
-  };
+  };  
 
   const handleUsernameChange = (e) => {
     const value = e.target.value;
@@ -108,21 +108,9 @@ setTimeout(() => {
         </div>
         {passwordError && <div className="error-message">{passwordError}</div>}
 
-        <button className="next-button" disabled={usernameError || passwordError}>
+        <button className="next-button" disabled={usernameError || passwordError} onClick={handleLogin}>
           Login
         </button>
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="login-input"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="next-button" onClick={handleLogin}>
-          Login
-        </button>
-
         {error && <div className="error-message">{error}</div>}
 
         <div className="register-link">
